@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.vscode/settings.json
+.gitignore
+src/modules/chrome.py
+src/utilities/update_utils.py

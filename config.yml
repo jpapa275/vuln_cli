@@ -1,0 +1,11 @@
+settings:
+  urls:
+    cisa_kev: "https://www.cisa.gov/sites/default/files/csv/known_exploited_vulnerabilities.csv"
+    nvd: "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId="
+    msrc_api: "https://api.msrc.microsoft.com/cvrf/v2.0/"
+  kev_columns:
+    - 'date_added'
+    - 'cve_id'
+    # - 'vendor_project'
+    # - 'product'
+    - 'vulnerability_name'
