@@ -8,7 +8,7 @@ from src.modules.msrc_updates import (get_msrc, parse_browsers,
                                       parse_criticals, parse_zero_days,
                                       vuln_type_summary)
 from src.utilities.utils import banner, print_color
-from utilities.cli_options import cli_args
+from src.utilities.cli_options import cli_args
 
 
 def cli(args=cli_args()):
