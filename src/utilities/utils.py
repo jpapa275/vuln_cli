@@ -32,7 +32,7 @@ def is_dead_zone():
         falls on for that given month/year. Next we will find what date that the Sunday in that same week 
         falls on, then we add 2 days to that date to give us the exact date of the second tueday."""
 
-        base_date = datetime.strptime(
+        base_date = datetime.strptime( # type: ignore
             f'{month} 12 {year}',
             '%m %d %Y'
         )

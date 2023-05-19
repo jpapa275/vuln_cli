@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-"""CLI with csv output capability as well as filters to quickly list out RCE,crits etc
+"""CLI with csv output capability as well as filters to quickly list out RCE, crits etc...
 """
 from time import sleep
 
