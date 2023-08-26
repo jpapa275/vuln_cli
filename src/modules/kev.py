@@ -1,5 +1,6 @@
-# Test
-###
+""" 
+KEV Utilities
+"""
 
 import pandas as pd
 
@@ -7,17 +8,15 @@ from src.utilities.utils import import_config, is_data_frame, validate_cve, outp
 
 # import from config.yml
 config = import_config().get("settings")
-KEV_URL = (
-    config.get("urls").get("cisa_kev")
-)
+KEV_URL = config.get("urls").get("cisa_kev")
 COLUMNS = config.get("kev_columns")
 
 
-def get_cisa_kev():
+def get_cisa_kev() -> pd.DataFrame:
     """_summary_
 
     Returns:
-        _type_: _description_
+        pd.Dataframe: KEV DF sorted by date_added
     """
     data_frame = pd.read_csv(KEV_URL)
     if is_data_frame(data_frame):
@@ -29,29 +28,27 @@ def get_cisa_kev():
 
 
 def show_kev(data_frame=get_cisa_kev()):
-    """_summary_
-
-    """
     if is_data_frame(data_frame):
         data_frame = data_frame[COLUMNS]
         return output_df(data_frame)
 
 
-def search_kev_cve(search, data_frame=get_cisa_kev(), out_df=False):
+def search_kev_cve(search: str, data_frame=get_cisa_kev(), out_df=False):
     """_summary_
 
     Args:
-        search (_type_): _description_
-        df (_type_, optional): _description_. Defaults to get_cisa_kev().
+        search (str): CVE search term like CVE-2023-0000
+        data_frame (pd.DataFrame, optional): _description_. Defaults to get_cisa_kev().
 
     Returns:
-        _type_: _description_
+        pd.DataFrame: Output of the dataframe to the cli
     """
-    if search is not None and not isinstance(search,bool):
+    if search is not None and not isinstance(search, bool):
         search = search.upper()
         if is_data_frame(data_frame) and validate_cve(search):
             search_result = data_frame.cve_id.str.contains(
-                search, case=False, regex=False).any()
+                search, case=False, regex=False
+            ).any()
             if search_result is not True:
                 df = data_frame[data_frame.cve_id.values == search]
                 if out_df:

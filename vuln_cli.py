@@ -12,6 +12,11 @@ from src.utilities.cli_options import cli_args
 
 
 def cli(args=cli_args()):
+    """Main CLI
+
+    Args:
+        args (_type_, optional): Argparse options. Defaults to cli_args().
+    """
     secs = 0.5
     banner()
     sleep(secs)

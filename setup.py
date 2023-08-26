@@ -9,6 +9,7 @@ setup(
         'pandas',
         'requests',
         'tabulate',
+        'colorama',
         'PyYaml'
     ],
     entry_points={
